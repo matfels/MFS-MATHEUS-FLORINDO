@@ -287,13 +287,18 @@ a {
     font-size: 0.9rem;
     color: var(--text-muted);
 }
-
 /* =========================================
-   RESPONSIVIDADE (Tablets e Telemóveis - Corrigida)
+   RESPONSIVIDADE (Tablets e Celulares - CORREÇÃO DEFINITIVA)
    ========================================= */
 @media (max-width: 768px) {
+    /* 1. Removemos o menu fixo no celular para não tampar o conteúdo */
+    .header {
+        position: relative; /* O menu agora rola junto com a página */
+        padding: 15px 10px;
+    }
+
     .nav-container {
-        flex-direction: column;
+        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
         gap: 15px;
     }
 
@@ -301,19 +306,25 @@ a {
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
+        font-size: 0.95rem; /* Ajusta o tamanho da fonte dos links */
     }
 
-    .header .btn-outline {
-        display: none; 
+    /* Força o sumiço do botão superior no celular com !important */
+    .btn-outline {
+        display: none !important; 
     }
 
+    /* 2. Ajuste da Primeira Secção (Hero) */
     .hero {
-        padding-top: 190px; /* Menu fica mais alto no telemóvel, logo empurramos a foto mais para baixo */
+        min-height: auto; /* Permite que o celular calcule a altura sozinho */
+        padding-top: 40px; /* Reduzimos o espaço do topo porque o menu não é mais fixo */
+        padding-bottom: 60px;
     }
     
     .flor-img {
-        width: 250px; /* Foto mais pequena no telemóvel */
-        height: 250px;
+        width: 220px; /* Foto menor para o celular */
+        height: 220px;
+        margin-bottom: 20px;
     }
     
     .hero-content h1 {
@@ -324,15 +335,18 @@ a {
         font-size: 1rem;
     }
 
+    /* 3. Ajuste dos Espaçamentos e Títulos das Secções */
     .section {
-        padding: 50px 0;
+        padding: 60px 0; 
     }
 
     .section-title h2 {
         font-size: 2rem;
     }
     
+    /* 4. Ajuste da Galeria */
     .gallery-item {
-        height: 250px;
+        height: auto; /* Deixa a imagem ditar a altura naturalmente */
+        min-height: 250px;
     }
 }
