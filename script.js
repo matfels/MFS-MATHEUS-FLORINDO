@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Scroll suave para os links do menu
-    const links = document.querySelectorAll('.nav-links a, .btn-outline');
+    // Scroll suave APENAS para links internos (que começam com #)
+    const links = document.querySelectorAll('.nav-links a[href^="#"], .btn-outline[href^="#"]');
 
     links.forEach(link => {
         link.addEventListener('click', function(e) {
