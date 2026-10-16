@@ -16,4 +16,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+    // ==========================================
+    // LÓGICA DO CARROSSEL DE FOTOS
+    // ==========================================
+    const carousels = document.querySelectorAll('.carousel-wrapper');
+    
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+
+        // Botão de Próximo (Seta para direita)
+        nextBtn.addEventListener('click', () => {
+            const slideWidth = track.clientWidth;
+            track.scrollBy({ left: slideWidth, behavior: 'smooth' });
+        });
+
+        // Botão de Voltar (Seta para esquerda)
+        prevBtn.addEventListener('click', () => {
+            const slideWidth = track.clientWidth;
+            track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+        });
+    });
 });
